@@ -19,7 +19,9 @@
     "url": "https://github.com/emilof/homebridge-pushover-notification/issues"
   },
   "keywords": [
-    "homebridge-plugin"
+    "homebridge",
+    "homebridge-plugin",
+    "pushover"
   ],
   "main": "dist/index.js",
   "engines": {
