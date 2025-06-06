@@ -1,0 +1,2 @@
+declare module 'homebridge-lib' {
+}

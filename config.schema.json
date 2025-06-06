@@ -1,0 +1,85 @@
+{
+  "pluginAlias": "PushoverNotification",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "user": {
+        "title": "User Key",
+        "description": "The user key for your Pushover account.",
+        "type": "string",
+        "required": true
+      },
+      "token": {
+        "title": "API Token",
+        "description": "The application API token created under your Pushover account.",
+        "type": "string",
+        "required": true
+      },
+      "messages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Name",
+              "description": "Name of the switch shown in the Home app.",
+              "type": "string",
+              "required": true
+            },
+            "title": {
+              "title": "Title",
+              "description": "Title of the notification sent to the device.",
+              "type": "string"
+            },
+            "message": {
+              "title": "Message",
+              "description": "Message text of the notification sent to the device.",
+              "type": "string",
+              "required": true
+            },
+            "priority": {
+              "title": "Priority",
+              "description": "Priority of the message. Default: normal [<a href=\"https://pushover.net/api#prioritys\" target=\"_blank\">More info</a>]",
+              "type": "string",
+              "default": "normal",
+              "oneOf": [
+                {
+                  "title": "Emergency",
+                  "const": "emergency"
+                },
+                {
+                  "title": "High",
+                  "const": "high"
+                },
+                {
+                  "title": "Normal",
+                  "const": "normal"
+                },
+                {
+                  "title": "Low",
+                  "const": "low"
+                },
+                {
+                  "title": "Lowest",
+                  "const": "lowest"
+                }              
+              ]
+            },
+            "sound": {
+              "title": "Sound",
+              "description": "Sound to be played when notification is received on device. Default: pushover [<a href=\"https://pushover.net/api#sounds\" target=\"_blank\">More info</a>]",
+              "type": "string"
+            },
+            "cooldownTime": {
+              "title": "Cooldown time (millis)",
+              "description": "Minimum time before this message can be sent again. Default: off",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

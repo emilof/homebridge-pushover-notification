@@ -1,0 +1,51 @@
+{
+  "name": "homebridge-pushover-notification",
+  "displayName": "Homebridge Pushover Notification",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Homebridge plugin to send push notifications through Pushover from HomeKit",
+  "author": {
+    "name": "Emil Löfblom",
+    "email": "emil.lofblom@icloud.com",
+    "url": "https://github.com/emilof"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/emilof/homebridge-pushover-notification#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilof/homebridge-pushover-notification.git"
+  },
+  "bugs": {
+    "url": "https://github.com/emilof/homebridge-pushover-notification/issues"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "main": "dist/index.js",
+  "engines": {
+    "node": "^18.20.4 || ^20.18.0 || ^22.10.0",
+    "homebridge": "^1.8.0 || ^2.0.0-beta.0"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "lint": "eslint . --max-warnings=0",
+    "prepublishOnly": "npm run lint && npm run build",
+    "watch": "npm run build && npm link && nodemon"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.8.6",
+    "eslint": "^9.14.0",
+    "homebridge": "^2.0.0-beta.0",
+    "nodemon": "^3.1.7",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "homebridge-lib": "^7.1.0"
+  }
+}
