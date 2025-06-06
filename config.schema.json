@@ -5,6 +5,12 @@
   "schema": {
     "type": "object",
     "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Pushover Notification"
+      },
       "user": {
         "title": "User Key",
         "description": "The user key for your Pushover account.",
@@ -81,5 +87,33 @@
         }
       }
     }
-  }
+  },
+  "layout": [
+    {
+      "type": "fieldset",
+      "title": "General Settings",
+      "items": [
+        "user",
+        "token"
+      ]
+    },
+    {
+      "type": "array",
+      "title": "Messages",
+      "key": "messages",
+      "items": [
+        {
+          "type": "section",
+          "items": [
+            "messages[].name",
+            "messages[].title",
+            "messages[].message",
+            "messages[].priority",
+            "messages[].sound",
+            "messages[].cooldownTime"
+          ]
+        }
+      ]
+    }
+  ]
 }
