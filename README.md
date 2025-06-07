@@ -17,7 +17,7 @@ This is especially useful if you want to send a notification to your device when
 
 Go to the 'Plugins' page, search for `homebridge-pushover-notification`, and click 'Install'.
 
-### Optiona 2: Manually
+### Option 2: Manually
 
 Run the following command to install the plugin globally:
 
@@ -27,9 +27,9 @@ Run the following command to install the plugin globally:
 
 ### Option 1: Homebridge UI
 
-The easiest way to configure the plugin is to use the plugin config UI in Homebridge. It can be found under the 'More Menu' (**⋮**) on the 'Plugins' page.
+The easiest way to configure the plugin is to use the config UI in Homebridge. It will be displayed automatically after you've installed the plugin. If not, it can be found under the 'More Menu' `⋮` for the 'Homebridge Pushed Notification' plugin.
 
-### Optiona 2: Manually
+### Option 2: Manually
 
 An alternative is to edit the Homebridge JSON config file manually by adding the following config to the `platforms` array:
 
@@ -43,7 +43,8 @@ An alternative is to edit the Homebridge JSON config file manually by adding the
       "name": "Send warning message",
       "message": "Warning message text"
     }
-]
+  ]
+}
 ```
 
 ## Config Properties
@@ -54,16 +55,16 @@ An alternative is to edit the Homebridge JSON config file manually by adding the
 | `user`           | `string`  | Yes      | The user key for your Pushover account.                                  |
 | `token`          | `string`  | Yes      | The application API token created under your Pushover account.           |       
 | `messages`       | `array`   | Yes      | List of messages/switch accessories to setup in HomeKit.                 |
-| └ `name`         | `string`  | Yes      | Name of the switch shown in the Home app.                                |
-| └ `title`        | `string`  | No       | Title of the notification sent to the device.                            |
-| └ `message`      | `string`  | Yes      | Message text of the notification sent to the device.                     |
-| └ `priority`     | `string`  | No       | Priority of the message. Default: **normal**. [[More info](https://pushover.net/api#prioritys)] |
-| └ `sound`        | `string`  | No       | Sound to be played when notification is received on device. Default: **pushover**. [[More info](https://pushover.net/api#sounds)] |
-| └ `cooldownTime` | `integer` | No       | Minimum time before this message can be sent again. Default: no cooldown |
+| └&nbsp;`name`         | `string`  | Yes      | Name of the switch shown in the Home app.                                |
+| └&nbsp;`title`        | `string`  | No       | Title of the notification sent to the device.                            |
+| └&nbsp;`message`      | `string`  | Yes      | Message text of the notification sent to the device.                     |
+| └&nbsp;`priority`     | `string`  | No       | Priority of the message. Default: **normal**. [[More info](https://pushover.net/api#prioritys)] |
+| └&nbsp;`sound`        | `string`  | No       | Sound to be played when notification is received on device. Default: **pushover**. [[More info](https://pushover.net/api#sounds)] |
+| └&nbsp;`cooldownTime` | `integer` | No       | Minimum time before this message can be sent again. Default: no cooldown |
 
 ### Example config
 
-In the example below, two switch accessories have been configured. The first one has high priority and the second one has a custom sound and cooldown configured.
+In the example below, two switch accessories have been configured. The first one has high priority and the second one has custom sound and cooldown set.
 
 ```json
 {
