@@ -1,5 +1,8 @@
 # Homebridge Pushover Notification
 
+[![npm](https://img.shields.io/npm/v/homebridge-pushover-notification/latest?label=latest)](https://www.npmjs.com/package/homebridge-pushover-notification)
+[![npm](https://img.shields.io/npm/dt/homebridge-pushover-notification)](https://www.npmjs.com/package/homebridge-pushover-notification)
+
 This plugin allows you to send push notifications through Pushover (https://pushover.net) directly from HomeKit. It works by creating a momentary switch, that when turned on, sends a message via Pushover. Once the message has been sent, the switch automatically returns to its off state.
 
 This is especially useful if you want to send a notification to your device when a particular event occurs. Simply create a HomeKit automation that is triggered by the desired event or condition, and set the action to turn on the switch.
