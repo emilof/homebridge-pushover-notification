@@ -25,8 +25,7 @@ export class PushoverClient {
       user: this.user,
     };
     
-    this.log.debug('Sending Pushover request:');
-    this.log.debug(JSON.stringify(data));
+    this.log.debug('Sending Pushover request:', data);
 
     await axios.post(url, data)
       .then(response => {

@@ -43,9 +43,9 @@ export class PushoverNotificationPlatform implements DynamicPlatformPlugin {
   }
 
   private registerAccessories() {
-    const pushoverClient = new PushoverClient(this.config.token, this.config.user, this.log);
-
     const config = this.config as PushoverNotificationConfig;
+
+    const pushoverClient = new PushoverClient(config.token, config.user, this.log);
     
     for (const message of config.messages) {
       const uuid = this.api.hap.uuid.generate(message.name);
