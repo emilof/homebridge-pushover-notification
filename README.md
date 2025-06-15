@@ -52,18 +52,18 @@ An alternative is to edit the Homebridge JSON config file manually by adding the
 
 ## Config Properties
 
-| Property         | Type      | Required | Description                                                              |
-| ---------------- | --------- | -------- | ------------------------------------------------------------------------ |
-| `platform`       | `string`  | Yes      | Platform identifier. **Do not change this line**                         |
-| `user`           | `string`  | Yes      | The user key for your Pushover account.                                  |
-| `token`          | `string`  | Yes      | The application API token created under your Pushover account.           |       
-| `messages`       | `array`   | Yes      | List of messages/switch accessories to setup in HomeKit.                 |
-| └&nbsp;`name`         | `string`  | Yes      | Name of the switch shown in the Home app.                                |
-| └&nbsp;`title`        | `string`  | No       | Title of the notification sent to the device.                            |
-| └&nbsp;`message`      | `string`  | Yes      | Message text of the notification sent to the device.                     |
-| └&nbsp;`priority`     | `string`  | No       | Priority of the message. Default: **normal**. [[More info](https://pushover.net/api#prioritys)] |
-| └&nbsp;`sound`        | `string`  | No       | Sound to be played when notification is received on device. Default: **pushover**. [[More info](https://pushover.net/api#sounds)] |
-| └&nbsp;`cooldownTime` | `integer` | No       | Minimum time before this message can be sent again. Default: no cooldown |
+| Property              | Type     | Required | Description                                                               |
+| --------------------- | -------- | -------- | ------------------------------------------------------------------------- |
+| `platform`            | `string` | Yes      | Platform identifier. **Do not change this line**                          |
+| `user`                | `string` | Yes      | The user key for your Pushover account.                                   |
+| `token`               | `string` | Yes      | The application API token created under your Pushover account.            |       
+| `messages`            | `array`  | Yes      | List of messages/switch accessories to setup in HomeKit.                  |
+| └&nbsp;`name`         | `string` | Yes      | Name of the switch shown in the Home app.                                 |
+| └&nbsp;`title`        | `string` | No       | Title of the notification sent to the device.                             |
+| └&nbsp;`message`      | `string` | Yes      | Message text of the notification sent to the device.                      |
+| └&nbsp;`priority`     | `string` | No       | Priority of the message. Default: **normal**. [[More info](https://pushover.net/api#prioritys)] |
+| └&nbsp;`sound`        | `string` | No       | Sound to be played when notification is received on device. Default: **pushover**. [[More info](https://pushover.net/api#sounds)] |
+| └&nbsp;`cooldownTime` | `number` | No       | Minimum time before this message can be sent again. Default: no cooldown. |
 
 ### Example config
 
