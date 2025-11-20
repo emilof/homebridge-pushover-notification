@@ -1,6 +1,6 @@
 import type { Characteristic, CharacteristicValue, Logger, PlatformAccessory, Service } from 'homebridge';
 import type { PushoverNotificationPlatform } from './platform';
-import type { PushoverClient } from './pushover-client';
+import type { MessageRequest, PushoverClient } from './pushover-client';
 import type { Message } from './types.js';
 import { wait } from './utils.js';
 
@@ -13,6 +13,9 @@ const PriorityMap: Record<string, number> = {
 };
 
 export class SwitchAccessory {
+  private DefaultRetry = 300;   // 5 minutes
+  private DefaultExpire = 1800; // 30 minutes
+
   private log: Logger;
   private service: Service;
   private onCharacteristic: Characteristic;
@@ -74,12 +77,18 @@ export class SwitchAccessory {
   }
 
   private async sendMessage() {
-    await this.pushoverClient.sendMessage({
+    const request: MessageRequest = {
       title: this.message.title,
       message: this.message.message,
       priority: this.mapPriority(this.message.priority),
       sound: this.message.sound,
-    });
+    };
+    if (this.message.priority === 'emergency') {
+      request.retry = this.message.retry ?? this.DefaultRetry;
+      request.expire = this.message.expire ?? this.DefaultExpire;
+    }
+
+    await this.pushoverClient.sendMessage(request);
 
     this.log.info('Message sent:', this.message.name);
   }
@@ -104,6 +113,6 @@ export class SwitchAccessory {
   }
 
   private mapPriority(priority?: string): number | undefined {
-    return priority ? PriorityMap[priority] : undefined;
+    return priority ? PriorityMap[priority.toLowerCase()] : undefined;
   }
 }

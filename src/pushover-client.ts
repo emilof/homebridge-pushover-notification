@@ -5,6 +5,8 @@ export interface MessageRequest {
     message: string;
     title?: string;
     priority?: number;
+    retry?: number;
+    expire?: number;
     device?: string;
     sound?: string;
 }

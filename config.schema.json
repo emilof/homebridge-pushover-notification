@@ -73,9 +73,24 @@
                 }              
               ]
             },
+            "retry": {
+              "title": "Retry interval (seconds)",
+              "description": "How often to send the notification until it has been acknowledged. Only applicable when priority is set to 'Emergency'. Note: Max number of retries is 50, regardless of the set interval. Default: 300 (5 mins). Min: 30",
+              "placeholder": "300",
+              "type": "integer",
+              "minimum": 30
+            },
+            "expire": {
+              "title": "Expire time (seconds)",
+              "description": "Total time the notification will be resent until it has been acknowledged. Only applicable when priority is set to 'Emergency'. Default: 1800 (30 mins). Max: 10800 (3 hours)",
+              "placeholder": "1800",
+              "type": "integer",
+              "maximum": 10800
+            },
             "sound": {
               "title": "Sound",
               "description": "Sound to be played when notification is received on device. Default: pushover [<a href=\"https://pushover.net/api#sounds\" target=\"_blank\">More info</a>]",
+              "placeholder": "pushover",
               "type": "string"
             },
             "cooldownTime": {
@@ -109,6 +124,8 @@
             "messages[].title",
             "messages[].message",
             "messages[].priority",
+            "messages[].retry",
+            "messages[].expire",
             "messages[].sound",
             "messages[].cooldownTime"
           ]

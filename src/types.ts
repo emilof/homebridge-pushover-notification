@@ -11,6 +11,8 @@ export interface Message {
   title?: string,
   message: string,
   priority?: string,
+  retry?: number,
+  expire?: number,
   sound?: string,
   cooldownTime?: number,
 }

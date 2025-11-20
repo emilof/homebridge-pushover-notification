@@ -62,6 +62,8 @@ An alternative is to edit the Homebridge JSON config file manually by adding the
 | └&nbsp;`title`        | `string` | No       | Title of the notification sent to the device.                             |
 | └&nbsp;`message`      | `string` | Yes      | Message text of the notification sent to the device.                      |
 | └&nbsp;`priority`     | `string` | No       | Priority of the message. Default: **normal**. [[More info](https://pushover.net/api#prioritys)] |
+| └&nbsp;`retry`        | `string` | No       | How often to send the notification until it has been acknowledged. Only applicable when priority is set to 'emergency'. Note: Max number of retries is 50, regardless of the set interval. Default: **300** (5 mins). Min: 30 |
+| └&nbsp;`expire`       | `string` | No       | Total time the notification will be resent until it has been acknowledged. Only applicable when priority is set to 'emergency'. Default: **1800** (30 mins). Max: 10800 (3 hours) |
 | └&nbsp;`sound`        | `string` | No       | Sound to be played when notification is received on device. Default: **pushover**. [[More info](https://pushover.net/api#sounds)] |
 | └&nbsp;`cooldownTime` | `number` | No       | Minimum time before this message can be sent again. Default: no cooldown. |
 
