@@ -1,6 +1,6 @@
 import type { Characteristic, CharacteristicValue, Logger, PlatformAccessory, Service } from 'homebridge';
-import type { PushoverNotificationPlatform } from './platform';
-import type { MessageRequest, PushoverClient } from './pushover-client';
+import type { PushoverNotificationPlatform } from './platform.js';
+import type { MessageRequest, PushoverClient } from './pushover-client.js';
 import type { Message } from './types.js';
 import { wait } from './utils.js';
 
