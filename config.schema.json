@@ -25,6 +25,7 @@
       },
       "messages": {
         "type": "array",
+        "required": true,
         "items": {
           "type": "object",
           "properties": {

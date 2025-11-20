@@ -47,26 +47,33 @@ export class PushoverNotificationPlatform implements DynamicPlatformPlugin {
 
     const pushoverClient = new PushoverClient(config.token, config.user, this.log);
     
-    for (const message of config.messages) {
-      const uuid = this.api.hap.uuid.generate(message.name);
+    if (config.messages) {
+      for (const message of config.messages) {
+        if (!message.name || !message.message) {
+          this.log.debug('Invalid message config, skipping setup of accessory');
+          continue;
+        }
 
-      const existingAccessory = this.accessories.get(uuid);
+        const uuid = this.api.hap.uuid.generate(message.name);
 
-      if (existingAccessory) {
-        this.log.debug('Restoring existing accessory from cache:', existingAccessory.displayName);
+        const existingAccessory = this.accessories.get(uuid);
 
-        new SwitchAccessory(this, existingAccessory, pushoverClient, message);
-      } else {
-        this.log.debug('Adding new accessory:', message.name);
+        if (existingAccessory) {
+          this.log.debug('Restoring existing accessory from cache:', existingAccessory.displayName);
 
-        const accessory = new this.api.platformAccessory(message.name, uuid);
+          new SwitchAccessory(this, existingAccessory, pushoverClient, message);
+        } else {
+          this.log.debug('Adding new accessory:', message.name);
 
-        new SwitchAccessory(this, accessory, pushoverClient, message);
+          const accessory = new this.api.platformAccessory(message.name, uuid);
 
-        this.api.registerPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [accessory]);
+          new SwitchAccessory(this, accessory, pushoverClient, message);
+
+          this.api.registerPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [accessory]);
+        }
+
+        this.discoveredCacheUUIDs.push(uuid);
       }
-
-      this.discoveredCacheUUIDs.push(uuid);
     }
 
     for (const [uuid, accessory] of this.accessories) {
