@@ -8,32 +8,27 @@
       "name": {
         "title": "Name",
         "type": "string",
-        "required": true,
         "default": "Pushover Notification"
       },
       "user": {
         "title": "User Key",
         "description": "The user key for your Pushover account.",
-        "type": "string",
-        "required": true
+        "type": "string"
       },
       "token": {
         "title": "API Token",
         "description": "The application API token created under your Pushover account.",
-        "type": "string",
-        "required": true
+        "type": "string"
       },
       "messages": {
         "type": "array",
-        "required": true,
         "items": {
           "type": "object",
           "properties": {
             "name": {
               "title": "Name",
               "description": "Name of the switch shown in the Home app.",
-              "type": "string",
-              "required": true
+              "type": "string"
             },
             "title": {
               "title": "Title",
@@ -43,8 +38,7 @@
             "message": {
               "title": "Message",
               "description": "Message text of the notification sent to the device.",
-              "type": "string",
-              "required": true
+              "type": "string"
             },
             "priority": {
               "title": "Priority",
@@ -99,10 +93,12 @@
               "description": "Minimum time before this message can be sent again. Default: off",
               "type": "integer"
             }
-          }
+          },
+          "required": ["name", "message"]
         }
       }
-    }
+    },
+    "required": ["name", "user", "token", "messages"]
   },
   "layout": [
     {
